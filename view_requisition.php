@@ -84,7 +84,7 @@ function display_signature($signature_data) {
         .dhivehi {
                 font-family: 'Faruma', Arial, sans-serif;
                 font-size: 18px;
-                text-align: right;
+                /* text-align: right; */
                 margin-top: 10px;
         }
         body {
@@ -295,7 +295,7 @@ function display_signature($signature_data) {
                     <h5>Authorization</h5>
                     <div class="row">
                         <div class="col-md-6 mb-3 mb-md-0">
-                            <div class="signature-block">
+                            <div class="signature-block dhivehi">
                                 <h6 class="mb-3">Requested By</h6>
                                 <p class="mb-2"><span class="info-label">Name:</span> <?php echo htmlspecialchars($requisition['requested_by']); ?></p>
                                 <p class="mb-2"><span class="info-label">Date:</span> <?php echo date("F j, Y", strtotime($requisition['requested_by_date'])); ?></p>
@@ -306,7 +306,7 @@ function display_signature($signature_data) {
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="signature-block">
+                            <div class="signature-block dhivehi">
                                 <h6 class="mb-3">Authorised By</h6>
                                 <p class="mb-2"><span class="info-label">Name:</span> <?php echo htmlspecialchars($requisition['authorised_by']); ?></p>
                                 <p class="mb-2"><span class="info-label">Date:</span> <?php echo date("F j, Y", strtotime($requisition['authorised_by_date'])); ?></p>

@@ -9,14 +9,14 @@ require_once 'db_config.php';
 function redirect_with_status($type, $message) {
     $_SESSION['status_type'] = $type;
     $_SESSION['status_message'] = $message;
-    header("Location: index.php");
+    header("Location: dashboard.php");
     exit();
 }
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     // If not a POST request, redirect to the form
-    header("Location: index.php");
+    header("Location: dashboard.php");
     exit();
 }
 
@@ -39,6 +39,20 @@ $office_name = trim($_POST["office_name"]);
 $section_unit = trim($_POST["section_unit"]);
 $grf_number = trim($_POST["grf_number"]);
 $requisition_date = trim($_POST["requisition_date"]);
+
+// --- Server-Side Duplicate GRF Number Check ---
+// This is a crucial fallback in case client-side validation is bypassed.
+$stmt_check = $mysqli->prepare("SELECT id FROM requisitions WHERE grf_number = ?");
+if ($stmt_check) {
+    $stmt_check->bind_param("s", $grf_number);
+    $stmt_check->execute();
+    $stmt_check->store_result();
+    if ($stmt_check->num_rows > 0) {
+        // The GRF number already exists. Redirect with an error.
+        redirect_with_status('danger', "Submission failed: The GRF Number '{$grf_number}' already exists.");
+    }
+    $stmt_check->close();
+}
 
 $requested_by = trim($_POST["requested_by"]);
 $requested_by_signature = trim($_POST["requested_by_signature"]);

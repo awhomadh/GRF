@@ -166,7 +166,6 @@
                                 <td><textarea class="form-control" name="remarks[]" rows="3" placeholder="Any additional remarks"></textarea></td>
                                 <td class="text-center">
                                     <div class="d-flex gap-1">
-                                        <button type="button" class="btn btn-info btn-sm add-same-remark" title="Add another item with same remark"><i class="bi bi-plus-square-dotted"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm remove-item-row" title="Remove Item">
                                             <i class="bi bi-trash"></i>
                                         </button>
@@ -194,7 +193,6 @@
                     <td><textarea class="form-control" name="remarks[]" rows="3" placeholder="Any additional remarks"></textarea></td>
                     <td class="text-center">
                         <div class="d-flex gap-1">
-                            <button type="button" class="btn btn-info btn-sm add-same-remark" title="Add another item with same remark"><i class="bi bi-plus-square-dotted"></i></button>
                             <button type="button" class="btn btn-danger btn-sm remove-item-row" title="Remove Item">
                                 <i class="bi bi-trash"></i>
                             </button>
@@ -211,10 +209,10 @@
                         <label for="requestedBy" class="form-label">Requested By</label>
                         <select class="form-select" id="requestedBy" name="requested_by" required>
                             <option selected disabled value="">Choose...</option>
-                            <option class="dhivehi" value="Mohamed Kamil">މުޙައްމަދު ކާމިލް / އ.މެއިންޓެނަންސް އޮފިސަރ</option>
-                            <option class="dhivehi" value="Mohamed Shaheem">މުޙައްމަދު ޝަހިމް / ކޮމްޕިއުޓަރ ޓެކްނިޝަން</option>
-                            <option class="dhivehi" value="Ahmed Irufan">އަޙްމަދު ޢިރުފާން / އ. އެލެކްޓްރީޝަން</option>
-                            <option class="dhivehi" value="Ibrahim Easa"> އިބްރާހީމް އީސާ / މެކޭނިކް</option>
+                            <option class="dhivehi" value="މުޙައްމަދު ކާމިލް / އ.މެއިންޓެނަންސް އޮފިސަރ">މުޙައްމަދު ކާމިލް / އ.މެއިންޓެނަންސް އޮފިސަރ</option>
+                            <option class="dhivehi" value="މުޙައްމަދު ޝަހިމް / ކޮމްޕިއުޓަރ ޓެކްނިޝަން">މުޙައްމަދު ޝަހިމް / ކޮމްޕިއުޓަރ ޓެކްނިޝަން</option>
+                            <option class="dhivehi" value="އަޙްމަދު ޢިރުފާން / އ. އެލެކްޓްރީޝަން">އަޙްމަދު ޢިރުފާން / އ. އެލެކްޓްރީޝަން</option>
+                            <option class="dhivehi" value="އިބްރާހީމް އީސާ / މެކޭނިކް"> އިބްރާހީމް އީސާ / މެކޭނިކް</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -232,9 +230,9 @@
                         <label for="authorisedBy" class="form-label">Authorised By</label>
                         <select class="form-select" id="authorisedBy" name="authorised_by" required>
                             <option selected disabled value="">Choose...</option>
-                            <option class="dhivehi" value="Saniyya Mohamed">ސަނިއްޔާ މުޙައްމަދު / ޑިރެކްޓަރ</option>
-                            <option class="dhivehi" value="Hassan Ismail">ޙަސަން އިސްމާޢީލް / އ.ޑިރެކްޓަރ</option>
-                            <option class="dhivehi" value="Ibrahim Nazim">އިބްރާހީމް ނާޒިމް / އ.ޑިރެކްޓަރ</option>
+                            <option class="dhivehi" value="ސަނިއްޔާ މުޙައްމަދު / ޑިރެކްޓަރ">ސަނިއްޔާ މުޙައްމަދު / ޑިރެކްޓަރ</option>
+                            <option class="dhivehi" value="ޙަސަން އިސްމާޢީލް / އ.ޑިރެކްޓަރ">ޙަސަން އިސްމާޢީލް / އ.ޑިރެކްޓަރ</option>
+                            <option class="dhivehi" value="އިބްރާހީމް ނާޒިމް / އ.ޑިރެކްޓަރ">އިބްރާހީމް ނާޒިމް / އ.ޑިރެކްޓަރ</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -248,7 +246,8 @@
                 </div>
             </div>
 
-            <div class="d-grid gap-2 col-6 mx-auto mt-4">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="dashboard.php" class="btn btn-secondary btn-lg">Cancel</a>
                 <button type="submit" class="btn btn-primary btn-lg">Submit Requisition</button>
             </div>
         </form>
@@ -275,7 +274,8 @@
 
             // Use event delegation to handle remove button clicks for all rows
             tableBody.addEventListener('click', function(event) {
-                const removeBtn = event.target.closest('.remove-item-row');
+                // Check if a remove button or its icon was clicked
+                if (event.target.closest('.remove-item-row')) {
                     // Prevent removing the last row
                     if (tableBody.querySelectorAll('.item-row').length > 1) {
                         event.target.closest('.item-row').remove();

@@ -73,6 +73,16 @@ function is_selected($value, $selected_value) {
             background-color: #f8f9fa;
             padding: 20px;
         }
+                        @font-face {
+            font-family: 'Faruma';
+            src:url('fonts/Faruma.ttf') format('truetype');
+        }
+        .dhivehi {
+                font-family: 'Faruma', Arial, sans-serif;
+                font-size: 18px;
+                /**text-align: right;**/
+                margin-top: 10px;
+        }
         .container {
             max-width: 900px;
             background-color: #ffffff;
@@ -213,11 +223,10 @@ function is_selected($value, $selected_value) {
                         <label for="requestedBy" class="form-label">Requested By</label>
                         <select class="form-select" id="requestedBy" name="requested_by" required>
                             <option disabled value="">Choose...</option>
-                            <option value="John Doe" <?php echo is_selected('John Doe', $requisition['requested_by']); ?>>John Doe (Admin)</option>
-                            <option value="Jane Smith" <?php echo is_selected('Jane Smith', $requisition['requested_by']); ?>>Jane Smith (Finance)</option>
-                            <option value="Peter Jones" <?php echo is_selected('Peter Jones', $requisition['requested_by']); ?>>Peter Jones (IT)</option>
-                            <option value="Alice Brown" <?php echo is_selected('Alice Brown', $requisition['requested_by']); ?>>Alice Brown (HR)</option>
-                            <option value="Michael Green" <?php echo is_selected('Michael Green', $requisition['requested_by']); ?>>Michael Green (Operations)</option>
+                            <option class="dhivehi" value="މުޙައްމަދު ކާމިލް / އ.މެއިންޓެނަންސް އޮފިސަރ" <?php echo is_selected('Mohamed Kamil', $requisition['requested_by']); ?>>މުޙައްމަދު ކާމިލް / އ.މެއިންޓެނަންސް އޮފިސަރ</option>
+                            <option class="dhivehi" value="މުޙައްމަދު ޝަހިމް / ކޮމްޕިއުޓަރ ޓެކްނިޝަން" <?php echo is_selected('Mohamed Shaheem', $requisition['requested_by']); ?>>މުޙައްމަދު ޝަހިމް / ކޮމްޕިއުޓަރ ޓެކްނިޝަން</option>
+                            <option class="dhivehi" value="އަޙްމަދު ޢިރުފާން / އ. އެލެކްޓްރީޝަން" <?php echo is_selected('Ahmed Irufan', $requisition['requested_by']); ?>>އަޙްމަދު ޢިރުފާން / އ. އެލެކްޓްރީޝަން</option>
+                            <option class="dhivehi" value="އިބްރާހީމް އީސާ / މެކޭނިކް" <?php echo is_selected('Ibrahim Easa', $requisition['requested_by']); ?>> އިބްރާހީމް އީސާ / މެކޭނިކް</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -235,9 +244,9 @@ function is_selected($value, $selected_value) {
                         <label for="authorisedBy" class="form-label">Authorised By</label>
                         <select class="form-select" id="authorisedBy" name="authorised_by" required>
                             <option disabled value="">Choose...</option>
-                            <option value="Director A" <?php echo is_selected('Director A', $requisition['authorised_by']); ?>>Director A</option>
-                            <option value="Manager B" <?php echo is_selected('Manager B', $requisition['authorised_by']); ?>>Manager B</option>
-                            <option value="Head of Department C" <?php echo is_selected('Head of Department C', $requisition['authorised_by']); ?>>Head of Department C</option>
+                            <option class="dhivehi" value="ސަނިއްޔާ މުޙައްމަދު / ޑިރެކްޓަރ" <?php echo is_selected('Saniyya Mohamed', $requisition['authorised_by']); ?>>ސަނިއްޔާ މުޙައްމަދު / ޑިރެކްޓަރ</option>
+                            <option class="dhivehi" value="ޙަސަން އިސްމާޢީލް / އ.ޑިރެކްޓަރ" <?php echo is_selected('Hassan ismail', $requisition['authorised_by']); ?>>ޙަސަން އިސްމާޢީލް / އ.ޑިރެކްޓަރ</option>
+                            <option class="dhivehi" value="އިބްރާހީމް ނާޒިމް / އ.ޑިރެކްޓަރ" <?php echo is_selected('Ibrahim Nazim', $requisition['authorised_by']); ?>>އިބްރާހީމް ނާޒިމް / އ.ޑިރެކްޓަރ</option>
                         </select>
                     </div>
                     <div class="col-md-4">

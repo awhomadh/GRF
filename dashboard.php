@@ -61,7 +61,7 @@ $stmt_count->close();
 $total_pages = ceil($total_records / $records_per_page);
 
 // --- Fetch Paginated Requisitions ---
-$sql = "SELECT id, grf_number, office_name, requisition_date, requested_by " . $sql_base . $where_sql;
+$sql = "SELECT id, grf_number, section_unit, requisition_date, requested_by " . $sql_base . $where_sql;
 // Order by most recent date, then by ID for consistent sorting
 $sql .= " ORDER BY requisition_date DESC, id DESC LIMIT ? OFFSET ?";
 
@@ -99,6 +99,16 @@ if (!$result) {
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f9fa;
+        }
+                        @font-face {
+            font-family: 'Faruma';
+            src:url('fonts/Faruma.ttf') format('truetype');
+        }
+        .dhivehi {
+                font-family: 'Faruma', Arial, sans-serif;
+                font-size: 18px;
+                /**text-align: right;**/
+                margin-top: 10px;
         }
         .container {
             margin-top: 30px;
@@ -188,7 +198,7 @@ if (!$result) {
                         <thead>
                             <tr>
                                 <th scope="col">GRF Number</th>
-                                <th scope="col">Office Name</th>
+                                <th scope="col">Section / Unit</th>
                                 <th scope="col">Requisition Date</th>
                                 <th scope="col">Requested By</th>
                                 <th scope="col" class="text-center">Actions</th>
@@ -199,9 +209,9 @@ if (!$result) {
                                 <?php while($row = $result->fetch_assoc()): ?>
                                     <tr>
                                         <td><?php echo htmlspecialchars($row['grf_number']); ?></td>
-                                        <td><?php echo htmlspecialchars($row['office_name']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['section_unit']); ?></td>
                                         <td><?php echo date("F j, Y", strtotime($row['requisition_date'])); ?></td>
-                                        <td><?php echo htmlspecialchars($row['requested_by']); ?></td>
+                                        <td class="dhivehi"><?php echo htmlspecialchars($row['requested_by']); ?></td>
                                         <td class="text-center action-icons">
                                             <a href="view_requisition.php?id=<?php echo $row['id']; ?>" title="View Details"><i class="bi bi-eye"></i></a>
                                             <a href="edit_requisition.php?id=<?php echo $row['id']; ?>" title="Edit Requisition"><i class="bi bi-pencil-square"></i></a>
