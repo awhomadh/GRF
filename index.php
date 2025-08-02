@@ -5,7 +5,6 @@ include('include/nav.php');
 
         <!-- MAIN CONTENT -->
         <main>
-
             <!-- HEADER -->
             <header class="container-fluid d-flex py-6 mb-4">
             

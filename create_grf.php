@@ -16,6 +16,16 @@
             background-color: #f8f9fa;
             padding: 20px;
         }
+                @font-face {
+            font-family: 'Faruma';
+            src:url('fonts/Faruma.ttf') format('truetype');
+        }
+        .dhivehi {
+                font-family: 'Faruma', Arial, sans-serif;
+                font-size: 18px;
+                /**text-align: right;**/
+                margin-top: 10px;
+        }
         .container {
             max-width: 900px;
             background-color: #ffffff;
@@ -115,14 +125,13 @@
                             <option value="Finance">Finance</option>
                             <option value="Human Resources">Human Resources</option>
                             <option value="IT Department">IT Department</option>
-                            <option value="Operations">Operations</option>
                             <option value="Procurement">Procurement</option>
-                            <option value="Marketing">Marketing</option>
+                            <option value="Support Service Unit">Support Service Unit</option>
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="grfNumber" class="form-label">GRF Number</label>
-                        <input type="text" class="form-control" id="grfNumber" name="grf_number" placeholder="e.g., GRF-2025-001" required>
+                        <input type="text" class="form-control" id="grfNumber" name="grf_number" placeholder="e.g., (FRM)SH-FAH-A/2025/001" required>
                     </div>
                     <div class="col-md-6">
                         <label for="requisitionDate" class="form-label">Requisition Date</label>
@@ -155,10 +164,12 @@
                                 <td><input type="date" class="form-control" name="request_date[]" required></td>
                                 <td><input type="text" class="form-control" name="received_by[]" placeholder="Name of recipient"></td>
                                 <td><textarea class="form-control" name="remarks[]" rows="3" placeholder="Any additional remarks"></textarea></td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm remove-item-row" title="Remove Item">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
+                                <td class="text-center">
+                                    <div class="d-flex gap-1">
+                                        <button type="button" class="btn btn-danger btn-sm remove-item-row" title="Remove Item">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -180,10 +191,12 @@
                     <td><input type="date" class="form-control" name="request_date[]" required></td>
                     <td><input type="text" class="form-control" name="received_by[]" placeholder="Name of recipient"></td>
                     <td><textarea class="form-control" name="remarks[]" rows="3" placeholder="Any additional remarks"></textarea></td>
-                    <td>
-                        <button type="button" class="btn btn-danger btn-sm remove-item-row" title="Remove Item">
-                            <i class="bi bi-trash"></i>
-                        </button>
+                    <td class="text-center">
+                        <div class="d-flex gap-1">
+                            <button type="button" class="btn btn-danger btn-sm remove-item-row" title="Remove Item">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
                     </td>
                 </tr>
             </template>
@@ -196,11 +209,10 @@
                         <label for="requestedBy" class="form-label">Requested By</label>
                         <select class="form-select" id="requestedBy" name="requested_by" required>
                             <option selected disabled value="">Choose...</option>
-                            <option value="John Doe">John Doe (Admin)</option>
-                            <option value="Jane Smith">Jane Smith (Finance)</option>
-                            <option value="Peter Jones">Peter Jones (IT)</option>
-                            <option value="Alice Brown">Alice Brown (HR)</option>
-                            <option value="Michael Green">Michael Green (Operations)</option>
+                            <option class="dhivehi" value="މުޙައްމަދު ކާމިލް / އ.މެއިންޓެނަންސް އޮފިސަރ">މުޙައްމަދު ކާމިލް / އ.މެއިންޓެނަންސް އޮފިސަރ</option>
+                            <option class="dhivehi" value="މުޙައްމަދު ޝަހިމް / ކޮމްޕިއުޓަރ ޓެކްނިޝަން">މުޙައްމަދު ޝަހިމް / ކޮމްޕިއުޓަރ ޓެކްނިޝަން</option>
+                            <option class="dhivehi" value="އަޙްމަދު ޢިރުފާން / އ. އެލެކްޓްރީޝަން">އަޙްމަދު ޢިރުފާން / އ. އެލެކްޓްރީޝަން</option>
+                            <option class="dhivehi" value="އިބްރާހީމް އީސާ / މެކޭނިކް"> އިބްރާހީމް އީސާ / މެކޭނިކް</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -218,9 +230,9 @@
                         <label for="authorisedBy" class="form-label">Authorised By</label>
                         <select class="form-select" id="authorisedBy" name="authorised_by" required>
                             <option selected disabled value="">Choose...</option>
-                            <option value="Director A">Director A</option>
-                            <option value="Manager B">Manager B</option>
-                            <option value="Head of Department C">Head of Department C</option>
+                            <option class="dhivehi" value="ސަނިއްޔާ މުޙައްމަދު / ޑިރެކްޓަރ">ސަނިއްޔާ މުޙައްމަދު / ޑިރެކްޓަރ</option>
+                            <option class="dhivehi" value="ޙަސަން އިސްމާޢީލް / އ.ޑިރެކްޓަރ">ޙަސަން އިސްމާޢީލް / އ.ޑިރެކްޓަރ</option>
+                            <option class="dhivehi" value="އިބްރާހީމް ނާޒިމް / އ.ޑިރެކްޓަރ">އިބްރާހީމް ނާޒިމް / އ.ޑިރެކްޓަރ</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -234,7 +246,8 @@
                 </div>
             </div>
 
-            <div class="d-grid gap-2 col-6 mx-auto mt-4">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="dashboard.php" class="btn btn-secondary btn-lg">Cancel</a>
                 <button type="submit" class="btn btn-primary btn-lg">Submit Requisition</button>
             </div>
         </form>
@@ -261,8 +274,8 @@
 
             // Use event delegation to handle remove button clicks for all rows
             tableBody.addEventListener('click', function(event) {
-                // Find the closest remove button to the click target
-                if (event.target && event.target.closest('.remove-item-row')) {
+                // Check if a remove button or its icon was clicked
+                if (event.target.closest('.remove-item-row')) {
                     // Prevent removing the last row
                     if (tableBody.querySelectorAll('.item-row').length > 1) {
                         event.target.closest('.item-row').remove();
